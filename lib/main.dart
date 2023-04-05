@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'feature/home/home_view.dart';
+import 'feature/splash/splash_view.dart';
 
 Future<void> main() async {
   await ApplicationStart.init();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeView(),
+      home: SplashView(),
     );
   }
 }
