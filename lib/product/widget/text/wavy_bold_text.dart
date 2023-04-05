@@ -9,6 +9,7 @@ class WavyBoldText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedTextKit(
+      repeatForever: true,
         animatedTexts: [
           WavyAnimatedText(
             title,

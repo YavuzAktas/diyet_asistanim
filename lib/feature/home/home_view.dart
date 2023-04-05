@@ -34,7 +34,7 @@ class _HomeListView extends StatelessWidget {
         return const Dietitian().fromFirebase(snapshot);
       },
       toFirestore: (value, option) {
-        if(value ==null) throw FirebaseCustomException('$value not null');
+        if(value == null) throw FirebaseCustomException('$value not null');
         return value.toJson();
       },
     ).get();
