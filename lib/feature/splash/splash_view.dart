@@ -24,7 +24,6 @@ class _SplashViewState extends ConsumerState<SplashView> with _SplashViewListenM
   @override
   void initState() {
     super.initState();
-
     ref.read(splashProvider.notifier).checkApplicationVersion(''.version);
   }
 
@@ -32,16 +31,24 @@ class _SplashViewState extends ConsumerState<SplashView> with _SplashViewListenM
   Widget build(BuildContext context) {
     listenAndNavigate(splashProvider);
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconConstants.logo.toImage,
-            Padding(
-                padding: context.onlyTopPaddingLow
-            ),
-            const WavyBoldText(title: StringConstants.appName),
-          ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/icon/ic_background.png'),
+              fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconConstants.logo.toImage,
+              Padding(
+                  padding: context.onlyTopPaddingLow
+              ),
+              const WavyBoldText(title: StringConstants.appName),
+            ],
+          ),
         ),
       ),
     );
