@@ -45,9 +45,20 @@ dependencies:
   #firebase
   cloud_firestore: ^4.5.0
   firebase_core: ^2.9.0
+  firebase_auth: ^4.4.0
+  firebase_ui_auth: ^1.2.0
+  firebase_ui_oauth_google: ^1.1.0
+  google_sign_in: ^6.0.2
+  flutter_localizations:
+    sdk: flutter
+  firebase_ui_localizations: ^1.2.0
+
 
   #utility
   animated_text_kit: ^4.2.2
+  google_fonts: ^4.0.3
+
+
 
 dev_dependencies:
   flutter_test:
