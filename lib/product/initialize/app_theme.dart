@@ -1,5 +1,6 @@
 
 
+import 'package:diyet_asistanim/product/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 @immutable
 class AppTheme {
@@ -9,11 +10,16 @@ class AppTheme {
   ThemeData get theme => ThemeData.light().copyWith(
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(
-            const EdgeInsets.all(24),
+          shape: MaterialStateProperty.all<OutlinedBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          padding: MaterialStateProperty.all<EdgeInsets>(
+            const EdgeInsets.all(18),
+          ),
+          backgroundColor: MaterialStateProperty.all<Color>(ColorConstants.greenCrayola),
+          foregroundColor: MaterialStateProperty.all<Color>(ColorConstants.white),
         ),
       ),
   );

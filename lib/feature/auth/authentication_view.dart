@@ -27,15 +27,23 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
   });
 
   @override
+  void initState() {
+    super.initState();
+    checkUser(FirebaseAuth.instance.currentUser);
+  }
+
+  void checkUser(User? user) {
+    ref.read(authProvider.notifier).fetchUserDetail(user);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: firebase.FirebaseUIActions(
         actions: [
           AuthStateChangeAction<SignedIn>((context, state) {
             if (state.user != null) {
-              print('Okey');
-            } else {
-              Navigator.pushReplacementNamed(context, '/profile');
+              checkUser(state.user);
             }
           }),
         ],
@@ -46,13 +54,20 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
               children: [
                 IconConstants.logo.toImage,
                 const TextHeader(title: StringConstants.appName),
-                const DescriptionText(title: 'Alanında Uzman Diyetisyenler'),
+                const DescriptionText(title: StringConstants.loginDescription),
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: firebase.LoginView(
                       action: AuthAction.signIn,
                       providers: firebase.FirebaseUIAuth.providersFor(FirebaseAuth.instance.app),
                     showTitle: false,
+                  ),
+                ),
+                Visibility(
+                  visible:ref.watch(authProvider).isRedirect,
+                  child: TextButton(
+                      onPressed: () {},
+                      child: const DescriptionText(title: StringConstants.continueToApp),
                   ),
                 ),
               ],

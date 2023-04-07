@@ -4,4 +4,8 @@ import 'package:flutter/material.dart';
 class StringConstants {
   const StringConstants._();
   static const String appName = 'Diyet Asistanım';
+
+  //Login
+  static const String loginDescription = 'Alanında Uzman Diyetisyenler';
+  static const String continueToApp = 'Uygulamaya devam et';
 }

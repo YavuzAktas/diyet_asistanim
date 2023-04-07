@@ -9,4 +9,5 @@ class LabelOverrides extends DefaultLocalizations {
 
   @override
   String get passwordInputLabel => 'Şifrenizi giriniz';
+
 }
